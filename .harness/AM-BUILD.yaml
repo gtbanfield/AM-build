@@ -1,0 +1,28 @@
+inputSet:
+  pipeline:
+    identifier: AMbuild
+    properties:
+      ci:
+        codebase:
+          build:
+            spec:
+              branch: main
+            type: branch
+    stages:
+      - stage:
+          identifier: CI
+          type: CI
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: BuildAndPushDockerRegistry_1
+                    type: BuildAndPushDockerRegistry
+                    spec:
+                      dockerfile: AM/openam/samples/docker/images/am-empty/Dockerfile
+                      tags:
+                        - 7.5.0
+  name: AM-BUILD
+  identifier: AMBUILD
+  orgIdentifier: default
+  projectIdentifier: IDA
