@@ -36,7 +36,11 @@ pipeline:
                     connectorRef: account.harnessImage
                     image: maven:3.9.9-amazoncorretto-17-al2023
                     shell: Sh
-                    command: curl -k https://nexus:8443/repository/adhoc/Ping/AM/AM-8.0.1.zip -O /harness
+                    command: |-
+                      mkdir /harness/AM
+                      curl -k https://nexus:8443/repository/adhoc/Ping/AM/AM-8.0.1.zip -O --output-dir /harness/AM/
+                      cd /harness/AM/
+                      unzip AM-8.0.1.zip
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Nexus
