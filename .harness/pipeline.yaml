@@ -41,7 +41,9 @@ pipeline:
                       curl -k https://192.168.1.83:8443/repository/adhoc/Ping/AM/AM-8.0.1.zip -O --output-dir /harness/AM/
                       cd /harness/AM/
                       unzip AM-8.0.1.zip
-                      /harness/openam/samples/docker/setup.sh
+                      pwd
+                      ls -la .
+                      /harness/AM/openam/samples/docker/setup.sh
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Nexus
