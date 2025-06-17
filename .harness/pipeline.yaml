@@ -46,6 +46,7 @@ pipeline:
                       cd /harness/AM/openam/samples/docker/
                       chmod +x ./setup.sh
                       ./setup.sh
+                      cd images/am-empty
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Nexus
