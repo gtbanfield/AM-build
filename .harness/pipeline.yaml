@@ -43,7 +43,8 @@ pipeline:
                       unzip AM-8.0.1.zip
                       pwd
                       ls -la .
-                      /harness/AM/openam/samples/docker/setup.sh
+                      cd /harness/AM/openam/samples/docker/
+                      ./setup.sh
               - step:
                   type: BuildAndPushDockerRegistry
                   name: Nexus
