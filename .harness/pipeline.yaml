@@ -38,7 +38,9 @@ pipeline:
                     shell: Sh
                     command: |-
                       mkdir /harness/AM
-                      curl -k https://192.168.1.83:8443/repository/adhoc/Ping/AM/AM-7.4.0.zip -O --output-dir /harness/AM/
+                      curl -u -H "Authorization: Basic <+secrets.getValue('Nexus')>" https://nexus:8443/repository/adhoc/Ping/AM/AM-7.4.0.zip -O
+
+                      #curl -k https://192.168.1.83:8443/repository/adhoc/Ping/AM/AM-7.4.0.zip -O --output-dir /harness/AM/
                       cd /harness/AM/
                       unzip AM-7.4.0.zip
                       pwd
